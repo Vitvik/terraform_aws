@@ -74,7 +74,7 @@ output "ecr_repository_url" {
 }
 */
 // S3 
-
+/*
 output "s3_bucket_arn" {
   value = module.s3.s3_bucket_arn
 }
@@ -114,8 +114,9 @@ output "s3_bucket_website_domain" {
 output "s3_bucket_website_endpoint" {
   value = module.s3.s3_bucket_website_endpoint
 }
-
+*/
 //cloudfront
+/*
 output "cloudfront_distribution_id" {
   description = "The identifier for the distribution."
   value       = module.cloudfront.cloudfront_distribution_id
@@ -200,3 +201,4 @@ output "cloudfront_origin_access_controls_ids" {
   description = "The IDS of the origin access identities created"
   value       = module.cloudfront.cloudfront_origin_access_controls_ids
 }
+*/
