@@ -18,7 +18,30 @@ module "vpc" {
 
   tags = var.tags
 }
-*/
+
+module "vote_service_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+
+  name        = "user-service"
+  description = "Security group for user-service with custom ports open within VPC, and PostgreSQL publicly open"
+  vpc_id      = "${module.vpc.default_vpc_id}"
+
+  ingress_cidr_blocks      = ["10.10.0.0/16"]
+  ingress_rules            = ["https-443-tcp"]
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = 8080
+      to_port     = 8090
+      protocol    = "tcp"
+      description = "User-service ports"
+      cidr_blocks = "10.10.0.0/16"
+    },
+    {
+      rule        = "postgresql-tcp"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+}
 /*
 module "eks" {
   source  = "./modules/eks"
@@ -91,6 +114,7 @@ resource "aws_ecr_repository" "vitvik_ecr_back" {
 }
 */
 
+
 // S3
 module "s3" {
   source = "./modules/s3-bucket"
@@ -105,25 +129,6 @@ module "s3" {
   ignore_public_acls  = true
   restrict_public_buckets = true
 
-#"AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E1J8JCHSCPEG4Z"
-#"Resource": "arn:aws:s3:::vitvik-test-front/*"
-  policy = <<EOF
-{
-  "Version": "2008-10-17",
-  "Id": "PolicyForCloudFrontPrivateContent",
-  "Statement": [
-    {
-      "Sid": "1",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${element(module.cloudfront.cloudfront_origin_access_identity_iam_arns, 0)}"
-      },
-      "Action": "s3:GetObject",
-      "Resource": "${module.s3.s3_bucket_arn}/*"
-    }
-  ]
-}
-EOF
   # Allow deletion of non-empty bucket
   force_destroy = true
   versioning = {
@@ -143,11 +148,7 @@ module "cloudfront" {
   origin_access_identities = {
     s3_bucket_front = "My CloudFront can access to s3 Front"
   }
-  /*
-  logging_config = {
-    bucket = "logs-my-cdn.s3.amazonaws.com"
-  }
-*/
+ 
   origin = {
  
     s3_front = {
@@ -169,3 +170,23 @@ module "cloudfront" {
   tags = var.tags
 }
 
+resource "aws_s3_bucket_policy" "allow_access_cloudfront" {
+  bucket = module.s3.s3_bucket_id
+   policy = <<EOF
+{
+  "Version": "2008-10-17",
+  "Id": "PolicyForCloudFrontPrivateContent",
+  "Statement": [
+    {
+      "Sid": "1",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${element(module.cloudfront.cloudfront_origin_access_identity_iam_arns, 0)}"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "${module.s3.s3_bucket_arn}/*"
+    }
+  ]
+}
+EOF
+}
