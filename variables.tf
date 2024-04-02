@@ -33,20 +33,20 @@ variable "cidr" {
 variable "azs" {
   description = "List of availability zones"
   type        = list(string)
-  default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  default     = ["eu-west-1a", "eu-west-1b"] //, "eu-west-1c"
 }
 
 
 variable "private_subnets" {
   description = "List of private subnets"
   type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  default     = ["10.0.1.0/24", "10.0.2.0/24"] //, "10.0.3.0/24"
 }
 
 variable "public_subnets" {
   description = "List of public subnets"
   type        = list(string)
-  default     = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  default     = ["10.0.101.0/24", "10.0.102.0/24"] //, "10.0.103.0/24"
 }
 //ECS
 variable "eks_name" {
@@ -70,18 +70,18 @@ variable "capacity_type" {
   type        = string
   default     = "ON_DEMAND"
 }
-
+/*
 variable "principal_arn" {
   description = "ARN of the principal to whom access is granted to the Amazon EKS cluster"
   type        = string
-  default     = "arn:aws:iam::638436445856:role/VitVikEksClusterRole"
+  default     = "arn:aws:iam::638436445856:user/teraform_vv_nd"
 }
 variable "policy_arn" {
   description = "ARN of the IAM policy to associate with the access entry"
   type        = string
   default     = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
-
+*/
 
 //ECR
 variable "ecr_name" {
