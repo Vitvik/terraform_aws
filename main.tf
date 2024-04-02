@@ -2,7 +2,7 @@ provider "aws" {
   #region is using variables.tf file
   region = var.region
 }
-/*
+
 module "vpc" {
   source = "./modules/vpc"
 
@@ -18,7 +18,7 @@ module "vpc" {
 
   tags = var.tags
 }
-
+/*
 module "vote_service_sg" {
   source = "terraform-aws-modules/security-group/aws"
 
@@ -42,7 +42,8 @@ module "vote_service_sg" {
     },
   ]
 }
-/*
+*/
+
 module "eks" {
   source  = "./modules/eks"
 
@@ -74,7 +75,7 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    example = {
+    vitvik_mn = {
       min_size     = 1
       max_size     = 10
       desired_size = 2
@@ -87,13 +88,13 @@ module "eks" {
   # Cluster access entry
   # To add the current caller identity as an administrator
   enable_cluster_creator_admin_permissions = true
-
+/*
   access_entries = {
     # One access entry with a policy associated
-    example = {
+    vitvik_test_managed_node = {
       principal_arn     = var.principal_arn
       policy_associations = {
-        example = {
+        vitvik_policy_ass = {
           policy_arn = var.policy_arn
           access_scope = {
             namespaces = ["default"]
@@ -103,10 +104,10 @@ module "eks" {
       }
     }
   }
-
+*/
   tags = var.tags
 }
-*/
+
 /*
 //ECR
 resource "aws_ecr_repository" "vitvik_ecr_back" {
@@ -114,7 +115,7 @@ resource "aws_ecr_repository" "vitvik_ecr_back" {
 }
 */
 
-
+/*
 // S3
 module "s3" {
   source = "./modules/s3-bucket"
@@ -190,3 +191,4 @@ resource "aws_s3_bucket_policy" "allow_access_cloudfront" {
 }
 EOF
 }
+*/
