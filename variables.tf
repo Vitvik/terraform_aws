@@ -27,27 +27,33 @@ variable "vpc_name" {
 variable "cidr" {
   description = "CIDR block for the VPC"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.123.0.0/16"
 }
 
 variable "azs" {
   description = "List of availability zones"
   type        = list(string)
-  default     = ["eu-west-1a", "eu-west-1b"] //, "eu-west-1c"
-}
-
-
-variable "private_subnets" {
-  description = "List of private subnets"
-  type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"] //, "10.0.3.0/24"
+  default     = ["eu-west-1a", "eu-west-1b"] 
 }
 
 variable "public_subnets" {
   description = "List of public subnets"
   type        = list(string)
-  default     = ["10.0.101.0/24", "10.0.102.0/24"] //, "10.0.103.0/24"
+  default     = ["10.123.1.0/24", "10.123.2.0/24"] 
 }
+
+variable "private_subnets" {
+  description = "List of private subnets"
+  type        = list(string)
+  default     = ["10.123.3.0/24", "10.123.4.0/24"] 
+}
+
+variable "intra_subnets" {
+  description = "List of intra subnets"
+  type        = list(string)
+  default     = ["10.123.5.0/24", "10.123.6.0/24"] 
+}
+
 //ECS
 variable "eks_name" {
   description = "Name of the Amazon EKS cluster"
@@ -62,13 +68,13 @@ variable "eks_version" {
 variable "instance_types" {
   description = "List of EC2 instance types for your EKS node groups"
   type        = list(string)
-  default     = ["t2.micro", "t3.micro"]
+  default     = ["t3.large"]
 }
 
 variable "capacity_type" {
   description = "Type of capacity for EKS node groups"
   type        = string
-  default     = "ON_DEMAND"
+  default     = "SPOT"
 }
 /*
 variable "principal_arn" {
