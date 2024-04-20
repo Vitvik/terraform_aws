@@ -25,7 +25,7 @@ output "public_subnets_cidr_blocks" {
   value       = module.vpc.public_subnets_cidr_blocks
 }
 */
-/*
+
 // EKS 
 output "eks_cluster_id" {
   description = "The ID of the EKS cluster. Note: currently a value is returned only for local EKS clusters created on Outposts"
@@ -66,7 +66,11 @@ output "cluster_iam_role_name" {
   description = "IAM role name of the EKS cluster"
   value       = module.eks.cluster_iam_role_name
 }
-*/
+output "cluster_certificate_authority_data" {
+  description = "cluster_certificate_authority_data"
+  value       = module.eks.cluster_certificate_authority_data
+}
+
 /*
 //ECR
 output "ecr_repository_url" {

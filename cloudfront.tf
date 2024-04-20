@@ -1,3 +1,4 @@
+/*
 module "cloudfront" {
   source  = "terraform-aws-modules/cloudfront/aws"
   version = "3.4.0"
@@ -52,3 +53,4 @@ resource "aws_s3_bucket_policy" "allow_access_cloudfront" {
 }
 EOF
 }
+*/
