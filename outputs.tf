@@ -1,6 +1,5 @@
 
 // VPC 
-/*
 output "vpc_id" {
   description = "The ID of the VPC"
   value       = module.vpc.vpc_id
@@ -24,7 +23,27 @@ output "public_subnets_cidr_blocks" {
   description = "List of cidr_blocks of public subnets"
   value       = module.vpc.public_subnets_cidr_blocks
 }
-*/
+
+output "nat_ids" {
+  description = "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  value       = module.vpc.nat_ids
+}
+
+output "nat_public_ips" {
+  description = "List of public Elastic IPs created for AWS NAT Gateway"
+  value       = module.vpc.nat_public_ips
+}
+
+output "natgw_ids" {
+  description = "List of NAT Gateway IDs"
+  value       = module.vpc.natgw_ids
+}
+
+output "natgw_interface_ids" {
+  description = "List of Network Interface IDs assigned to NAT Gateways"
+  value       = module.vpc.natgw_interface_ids
+}
+
 
 // EKS 
 output "eks_cluster_id" {

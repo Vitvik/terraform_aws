@@ -21,9 +21,37 @@ module "eks" {
 
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.private_subnets
-  control_plane_subnet_ids = module.vpc.intra_subnets
+  control_plane_subnet_ids = module.vpc.private_subnets
+  #module.vpc.intra_subnets
 
-  enable_efa_support = true
+  #enable_efa_support = true
+  create_cluster_security_group = false
+  create_node_security_group = false
+
+  cluster_security_group_additional_rules = {
+    name        = "Allow all"
+    description = "Allow all traffic"
+    ingress = {
+      description = "Allow all inbound traffic"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress = {
+      description = "Allow all outbound traffic"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+      
+    }
+
+    tags = {
+      Name = "Home to bastion"
+    }
+  }
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
@@ -41,7 +69,7 @@ module "eks" {
       desired_size = 1
 
       instance_types = ["t3.large"]
-      #t3.large t2.micro
+     
       capacity_type  = "SPOT"
 
       tags = {

@@ -76,18 +76,6 @@ variable "capacity_type" {
   type        = string
   default     = "SPOT"
 }
-/*
-variable "principal_arn" {
-  description = "ARN of the principal to whom access is granted to the Amazon EKS cluster"
-  type        = string
-  default     = "arn:aws:iam::638436445856:user/teraform_vv_nd"
-}
-variable "policy_arn" {
-  description = "ARN of the IAM policy to associate with the access entry"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-}
-*/
 
 //ECR
 variable "ecr_name" {
@@ -120,4 +108,4 @@ variable "comment" {
   type    = string
   default = "Terraform CFD created"
 }
-            
+         
