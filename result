@@ -1,49 +1,38 @@
-cloudfront_distribution_arn = "arn:aws:cloudfront::638436445856:distribution/E3GBPLKBV6GWF"
-cloudfront_distribution_caller_reference = "terraform-20240325065835470500000002"
-cloudfront_distribution_domain_name = "d1nri87ivj1wfi.cloudfront.net"
-cloudfront_distribution_etag = "E1CPS0QN72KCKQ"
-cloudfront_distribution_hosted_zone_id = "Z2FDTNDATAQYW2"
-cloudfront_distribution_id = "E3GBPLKBV6GWF"
-cloudfront_distribution_in_progress_validation_batches = 0
-cloudfront_distribution_last_modified_time = "2024-03-25 06:58:35.585 +0000 UTC"
-cloudfront_distribution_status = "InProgress"
-cloudfront_distribution_tags = tomap({
-  "Environment" = "Test"
-  "Terraform" = "true"
-})
-cloudfront_distribution_trusted_signers = tolist([
-  {
-    "enabled" = false
-    "items" = tolist([])
-  },
+aws_load_balancer_controller_role_arn = "arn:aws:iam::638436445856:role/aws-load-balancer-controller"
+cluster_certificate_authority_data = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJQStBOE9yRjlCbHN3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TkRBMU1ERXhOREkzTWpCYUZ3MHpOREEwTWpreE5ETXlNakJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUNtekRQUDdJbXByTC9nZVVRK252TGxjb2xFSkRIcE12cWlNeDlkQzJiMlM4TmJGTGhoaWtmRHE3cU4KcGdpZGVLTjBjN3JwRG14UjNVQTlUVDNWNktLbDVsZEoyMTF5VmFidWRhU3l4UDkyakRiNWNmbFJMWGNRaDB3YwpBcUQ2UGlCM256RXN5RmtOK2RIcWRHVGMwQThuSDhITjRlZUdtUlpMYjRpbk1aRGcwRjlOQjhDclF2cEFDYzFiCnA2Qk1yY0VTdjNLaloycnJkalIyZzRxMFF1Z2dMU3Bnbk90ZGVYeGdOY0tCckRGaGFHWU1YTEQ4VDh3L0hvblIKdXMrNlBneHZRUjloVDV0K1VHVWhzakRwN0ZiSFlwQ21jMnFBdGdjcXIwdGh2cEJqTU83aWxKSmpFYllWeUllTgpUZnA5NkN6c0NjWTJkRzg2dUdJSmQ4NlhHMTNEQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJTem5HUGU1bU9ld1hNSy95ellUWWxreFpRZFFUQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQmd0V2pwNXNsTgp2QUJKR3ZIenUvWFI3ejBEbHlxb1h0UC91dUhYOHpENDU1cWxKYmlFd1RyRWdMdFV3QzAvT3dFb0tJM3NIRkRSCmo0SzBHTFVRN0JyQmh3SFVlSGRQaUlEV1dCWUFxOStJVEgreU5ONGdGMmc0WThvWTI3b2huaTdkQ2Z2bE5PZmQKODRmUW9GODA1aUIzSkRDM3c0VEFuQkhsblJkMWNHK1B6NVFIbjhrYXVTaEpoUkx0OFY1VFJvSW5GQ1l2NHRJMAowR2NrWU1DRHY1S2ZTbEV3WFhiNEVVdGIvemNhR2dva1JTaW41YUVlMGRzVWhhTXZlSGdJb3g5Q1N5R1lkOGdaClZUNnlaUCtuZTFiUkZ5cmwwTVNnZDExeHlZWmVyQ0JFdXMyVWFKYkpWeVBIOEJyMmIxbUN1VFdDUHVGRmhWa0oKSG1sRHowNktXQThDCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+cluster_iam_role_name = "vitvik-test-cluster-cluster-20240501142714918700000002"
+cluster_ip_family = "ipv4"
+cluster_security_group_arn = "arn:aws:ec2:eu-west-1:638436445856:security-group/sg-0b9ba01a185ea9f7c"
+cluster_security_group_id = "sg-0b9ba01a185ea9f7c"
+eks_cluster_name = "vitvik-test-cluster"
+nat_ids = [
+  "eipalloc-06f5ced6bd9a45743",
+]
+nat_public_ips = tolist([
+  "34.253.63.101",
 ])
-cloudfront_monitoring_subscription_id = ""
-cloudfront_origin_access_controls = {}
-cloudfront_origin_access_controls_ids = []
-cloudfront_origin_access_identities = {
-  "s3_bucket_one" = {
-    "caller_reference" = "terraform-20240325065831863400000001"
-    "cloudfront_access_identity_path" = "origin-access-identity/cloudfront/E12V2N9YQ8Z93S"
-    "comment" = "CloudFront terraform"
-    "etag" = "E2Y4BQOM807YHZ"
-    "iam_arn" = "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E12V2N9YQ8Z93S"
-    "id" = "E12V2N9YQ8Z93S"
-    "s3_canonical_user_id" = "b114773caabd467b9c6ede71e814ca980488859cd7e6e5c51ae2b61f9abeb8ccea4b8c2733188351b2d26072dcac46b5"
-  }
-}
-cloudfront_origin_access_identity_iam_arns = [
-  "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E12V2N9YQ8Z93S",
+natgw_ids = [
+  "nat-037f5650a71d0db4a",
 ]
-cloudfront_origin_access_identity_ids = [
-  "E12V2N9YQ8Z93S",
+natgw_interface_ids = [
+  "eni-039161ea86abcefcb",
 ]
-s3_bucket_arn = "arn:aws:s3:::vitvik-test-front"
-s3_bucket_bucket_domain_name = "vitvik-test-front.s3.amazonaws.com"
-s3_bucket_bucket_regional_domain_name = "vitvik-test-front.s3.eu-west-1.amazonaws.com"
-s3_bucket_hosted_zone_id = "Z1BKCTXD74EZPE"
-s3_bucket_id = "vitvik-test-front"
-s3_bucket_lifecycle_configuration_rules = ""
-s3_bucket_policy = ""
-s3_bucket_region = "eu-west-1"
-s3_bucket_website_domain = ""
-s3_bucket_website_endpoint = ""
+node_security_group_arn = "arn:aws:ec2:eu-west-1:638436445856:security-group/sg-0939e5e0a5aaab9e1"
+node_security_group_id = "sg-0939e5e0a5aaab9e1"
+private_subnets = [
+  "subnet-02ea10d2d1a76216f",
+  "subnet-011611c4cbdeefcc2",
+]
+private_subnets_cidr_blocks = tolist([
+  "10.123.3.0/24",
+  "10.123.4.0/24",
+])
+public_subnets = [
+  "subnet-08773499a9b3c9236",
+  "subnet-0addf278f8a346c60",
+]
+public_subnets_cidr_blocks = tolist([
+  "10.123.1.0/24",
+  "10.123.2.0/24",
+])
+vpc_id = "vpc-0fbab2dd431515fd5"
