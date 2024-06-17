@@ -12,7 +12,6 @@ module "cloudfront" {
   }
  
   origin = {
- 
     s3_front = {
       domain_name = module.s3.s3_bucket_bucket_regional_domain_name
       s3_origin_config = {
@@ -24,7 +23,7 @@ module "cloudfront" {
     target_origin_id           = "s3_front"
     viewer_protocol_policy     = "allow-all"
 
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
+    allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
     cached_methods  = ["GET", "HEAD"]
     compress        = true
     query_string    = true
